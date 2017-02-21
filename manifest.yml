@@ -1,0 +1,10 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: Semester2Demo
+  host: Semester2Demo
+  disk_quota: 1024M
+  services:
+  - Weather Company Data-7k
