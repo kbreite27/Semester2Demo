@@ -23,12 +23,11 @@ app.use(express.static(__dirname + '/public'));
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
 app.get('/process_get', function(req, res) {
-	response = {
-	latitude:req.query.latitude,
-	longitude:req.query.longitude
+	latitude.req.query.latitude,
+	longitude.req.query.longitude
 	};
 
-val callURL = "https://bb137022-5302-4ad0-bcca-d135aad195d4:MXSR7lKExz@twcservice.mybluemix.net/api/weather/v1/geocode/"+response.latitude+"/"+response.longitude+"/forecast/hourly/48hour.json?units=m&language=en-US";
+val callURL = "https://bb137022-5302-4ad0-bcca-d135aad195d4:MXSR7lKExz@twcservice.mybluemix.net/api/weather/v1/geocode"+response.latitude+"/"+response.longitude+"/forecast/hourly/48hour.json?units=m&language=en-US";
   
 	resquest.get(callURL, {
 	json: true
@@ -36,7 +35,7 @@ val callURL = "https://bb137022-5302-4ad0-bcca-d135aad195d4:MXSR7lKExz@twcservic
 
 	function(error, response, body){
 	console.log(body)
-		});
+		})
 })
 
 
