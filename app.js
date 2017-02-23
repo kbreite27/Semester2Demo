@@ -7,9 +7,9 @@
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
 var express = require('express');
-	request = require('request');
+  request = require('request'),
 
-_ =require('lodash');
+_ = require('lodash');
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
 var cfenv = require('cfenv');
@@ -22,21 +22,23 @@ app.use(express.static(__dirname + '/public'));
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
-app.get('/process_get', function(req, res) {
-	response = {
-	latitude:req.query.latitude,
-	longitude:req.query.longitude
-	};
 
-val callURL = "https://bb137022-5302-4ad0-bcca-d135aad195d4:MXSR7lKExz@twcservice.mybluemix.net/api/weather/v1/geocode/"+response.latitude+"/"+response.longitude+"/forecast/hourly/48hour.json?units=m&language=en-US";
-  
-	resquest.get(callURL, {
-	json: true
-	},
 
-	function(error, response, body){
-	console.log(body)
-		});
+app.get('/process_get', function (req, res) {
+   // Prepare output in JSON format
+   response = {
+      latitude:req.query.latitude,
+      longitude:req.query.longitude
+     };
+
+      var callURL = "https://bb137022-5302-4ad0-bcca-d135aad195d4:MXSR7lKExz@twcservice.mybluemix.net/api/weather/v1/geocode/"+response.latitude+"/"+response.longitude+"/forecast/hourly/48hour.json?units=m&language=en-US";
+
+      request.get(callURL, {
+        json: true
+      },
+      function (error, response, body) {
+       console.log(body)
+      });
 })
 
 

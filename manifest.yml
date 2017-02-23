@@ -6,5 +6,3 @@ applications:
   name: Semester2Demo
   host: Semester2Demo
   disk_quota: 1024M
-  services:
-  - Weather Company Data-7k
